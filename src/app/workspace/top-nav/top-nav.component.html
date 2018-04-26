@@ -1,0 +1,23 @@
+<nav class="self-nav">
+  <div class="nav-brand">
+    <a>{{brand}}</a>
+  </div>
+  <div class="nav-list">
+    <span class="nav-item" [routerLink]="['chart',123]" routerLinkActive="active">图表Demo</span>
+    <span class="nav-item" routerLink="form" routerLinkActive="active">表格Demo</span>
+    <span class="nav-item" routerLink="test" routerLinkActive="active">测试组件</span>
+  </div>
+    <!-- 这样绑定事件控制一个 hover 太麻烦了，尝试下指令 
+    <div class="user-info"
+        [ngClass]="{'showChild': isShowout}" 
+        (mouseenter)="toggleLogout($event)"
+        (mouseleave)="toggleLogout($event)"
+    >
+    -->
+    <div appHover class="user-info">
+      <span class="fa fa-user-circle-o"></span>
+      <div class="logout">
+        <span (click)="logout()">退出</span>
+      </div>
+    </div>
+</nav>

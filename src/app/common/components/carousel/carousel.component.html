@@ -1,0 +1,9 @@
+<div class="carousel-wrapper">
+  <div class="carousel-item-wrapper" [@carouselState]="itemStates[0]">Page1</div>
+  <div class="carousel-item-wrapper" [@carouselState]="itemStates[1]">Page2</div>
+  <div class="carousel-item-wrapper" [@carouselState]="itemStates[2]">Page3</div>
+  <div class="carousel-item-wrapper" [@carouselState]="itemStates[3]">Page4</div>
+  <div class="carousel-tool-wrapper">
+    <span class="carousel-tool-item" [class.active]="i === currentIndex"  *ngFor="let item of itemStates;let i = index" (click)="switchItem(i)"></span>
+  </div>
+</div>

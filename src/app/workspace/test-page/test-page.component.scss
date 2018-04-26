@@ -1,0 +1,35 @@
+.test-page{
+    padding: 1rem;
+
+    .tip-test-wrapper{
+        display: flex;
+        margin-bottom: 1rem;
+
+        .tip-test-item{
+            width: max-content;
+            padding: .5rem;
+            background-color: #786a8a;
+            color: #fff;
+            border-radius: .3rem;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    .carousel{
+        width: 900px;
+        height: 600px;
+        margin: 10px auto;
+        overflow: hidden;
+    }
+
+    .datepicker-wrapper{
+        width: 900px;
+        height: 600px;
+        display: flex;
+
+        .datepicker{
+            margin: auto;
+        }
+    }
+}

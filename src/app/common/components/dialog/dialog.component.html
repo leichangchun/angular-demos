@@ -1,0 +1,17 @@
+<aside class="dialog-area" *ngIf="config.show">
+  <div class="dialog" [@fadeIn]="'in'">
+      <header>
+          <h3>{{config?.title}}</h3>
+          <button type="button" class="close" aria-label="Close" (click)="config.cancel()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </header>
+      <div class="content">
+        {{config?.content}}
+      </div>
+      <footer>
+        <button type="button" class="btn btn-dark" *ngIf="config?.cancelbtn || false" (click)="config.cancel()">取消</button>
+        <button type="button" class="btn btn-primary" (click)="config.sure()">确认</button>
+      </footer>
+  </div>
+</aside>

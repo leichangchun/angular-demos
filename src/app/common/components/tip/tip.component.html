@@ -1,0 +1,11 @@
+<!-- 动态设置class -->
+<aside class="tip-wrapper tip-{{tipConfig.type}}" *ngIf="tipConfig.showTip">
+  <span class="tip-content">
+    <span class="icon fa {{iconClass}}"></span>
+    {{tipConfig.tipText}}
+    <span class="close-btn fa fa-close" 
+          *ngIf="tipConfig" 
+          (click)="close()"
+    ></span>
+  </span>
+</aside>

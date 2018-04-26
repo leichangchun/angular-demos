@@ -1,0 +1,66 @@
+<div class="l-date-picker">
+  <div class="l-date-picker-wrapper" [@contentState]="states[0]">
+    <div class="l-date-picker-header">
+      <a class="l-year-pre l-tool" (click)="changeDate(-1,'year')">
+        <i class="iconfont icon-y-left"></i>
+      </a>
+      <a class="l-month-prev l-tool" (click)="changeDate(-1,'month')">
+          <i class="iconfont icon-m-left"></i>      
+      </a>
+      <div class="l-selected-area">
+        <span class="l-selected-month">{{selected.year}}年</span>
+        <span class="l-selected-year">{{selected.month | dealmonth}}月</span>
+      </div>
+      <a class="l-month-next l-tool" (click)="changeDate(1,'month')">
+          <i class="iconfont icon-m-right"></i>      
+      </a>
+      <a class="l-year-next l-tool" (click)="changeDate(1,'year')">
+          <i class="iconfont icon-y-right"></i>            
+      </a>
+    </div>
+    <div class="l-date-picker-days">
+      <div class="l-date-picker-weeks">
+          <div class="week-item" *ngFor="let week of weeks;let j = index">{{week}}</div>
+      </div>
+      <div class="l-date-picker-days">
+        <div class="day-item" 
+             *ngFor="let day of days;let i = index"
+             [ngClass]="{'active': i === selectedDayIndex, 'invalid' : i < validStart || i > validEnd}"
+             (click) = "chioceDay(i , day)"
+            >{{day}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="l-date-picker-wrapper absolute" [@contentState]="states[1]">
+      <div class="l-date-picker-header">
+        <a class="l-goback l-tool" (click)="goBack(0)">
+          <i class="iconfont icon-back"></i>
+        </a>
+        <div class="l-selected-area">
+          <span class="l-selected-month">{{selected.year}}年{{(selected.month + 1) | dealhour}}月{{(selected.day) | dealhour}}日</span>
+        </div>
+      </div>
+    <div class="l-date-picker-hours">
+      <div class="hour-item"
+           *ngFor="let hour of hours"
+           (click)="chioceHour(hour)"
+      >{{hour | dealhour}}</div>
+  </div>
+  </div>
+  <div class="l-date-picker-wrapper absolute" [@contentState]="states[2]">
+      <div class="l-date-picker-header">
+        <a class="l-goback l-tool" (click)="goBack(1)">
+          <i class="iconfont icon-back"></i>
+        </a>
+        <div class="l-selected-area">
+          <span class="l-selected-month">{{selected.year}}年{{(selected.month + 1) | dealhour}}月{{(selected.day) | dealhour}}日{{(selected.hour) | dealhour}}时</span>
+        </div>
+      </div>
+    <div class="l-date-picker-minutes">
+      <div class="hour-item minute-item"
+           *ngFor="let minute of minutes;let i = index"
+           (click)="chioceMinute(i)"
+      >{{selected.hour | dealhour}}:{{minute | dealhour}}</div>
+  </div>
+  </div>
+</div>

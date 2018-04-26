@@ -1,0 +1,15 @@
+<div class="container-fluid login-page">
+  <h1>测试登录</h1>
+  <form class="login-area">
+    <div class="form-group">
+        <input class="form-control" [(ngModel)] = "user.name"  type="text" name="name" id="login-name" placeholder="请输入登录帐号">
+    </div>
+    <div class="form-group">
+      <input class="form-control" [(ngModel)] = "user.pwd" type="password" name="pwd" id="login-pwd" placeholder="请输入登录密码">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-block btn-success" (click)="login()">登录</button>
+    </div>
+  </form>
+</div>
+

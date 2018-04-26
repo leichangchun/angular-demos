@@ -1,0 +1,42 @@
+.carousel-wrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .carousel-item-wrapper{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #000000;
+        border-radius: 10px;
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .carousel-tool-wrapper{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .carousel-tool-item{
+            flex: 1;
+            height: 6px;
+            width: 30px;
+            margin: 0 10px;
+            border-radius: 2px;
+            background-color: #cccccc;
+            cursor: pointer;
+
+            &.active{
+                background-color: #d89898;
+            }
+        }
+    }
+}

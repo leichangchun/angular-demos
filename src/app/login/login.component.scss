@@ -1,0 +1,31 @@
+.login-page{
+    height: 100%;
+    padding-top: 80px;
+    background-color: rgb(66, 133, 138);
+
+    h1{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .login-area{
+        width: 300px;
+        margin: 0 auto;
+
+        .form-group{
+
+        }
+    }
+}
+
+.aside-alert{
+    width: 300px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    span{
+        padding: 0 5px;
+    }
+}

@@ -1,0 +1,42 @@
+.chart-page{
+    flex-direction: column;
+    height: calc(100% - 80px);
+
+    .chart-types{
+        padding-top: 5px;
+        .col-sm-3{
+            padding: 0 5px;
+
+            .item{
+                height: 80px;
+                line-height: 80px;
+                font-size: 25px;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 5px;
+
+                &:hover{
+                    border: 2px solid #ffffff;
+                }
+            }
+        }
+    }
+
+    .echarts-area-container{
+        height: calc(100% - 85px);
+        position: relative;
+        .chart-area{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+
+        .go-back{
+            position: absolute;
+            top: 10px;
+            right: 5%;
+            z-index: 1000;
+        }
+    }
+}

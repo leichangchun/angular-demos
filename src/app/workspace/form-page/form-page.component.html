@@ -1,0 +1,67 @@
+<div class="form-page">
+    <aside class="form-tool">
+        <!-- #声明的模版引用变量 -->
+        <div #add class="tool-item btn btn-success" (click)="showEdit()">新增子项</div>
+        <div class="tool-item btn btn-primary">编辑子项</div>
+        <div class="tool-item btn btn-danger">删除子项</div>
+        <!-- <div class="tool-item btn btn-dark" (click)="toggleDialog()">按钮测试</div> -->
+    </aside>
+    <app-form-list [formData]="formList"></app-form-list>
+</div>
+
+<!-- 新增区域 -->
+<aside  class="edit-area" *ngIf="editing">
+    <form class="form-edit" #form="ngForm" (ngSubmit) = "saveEdit(form)">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="edit-title">标题 ： </label>
+                </div>
+                <input [(ngModel)]="editData.title" 
+                       #title="ngModel"
+                       required 
+                       class="form-control" 
+                       type="text" name="title" id="edit-title" placeholder="">
+            </div>
+            <div class="input-group" *ngIf="form.submitted&&title.invalid">
+                <span class="input-warning fa fa-warning"></span> 标题为必填项！
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="edit-type">类型 ： </label>
+                </div>
+                <input [(ngModel)]="editData.type" 
+                       #type="ngModel" 
+                       class="form-control"
+                       name="type" type="text" id="edit-type" placeholder="">
+            </div>
+            <div class="input-group" *ngIf="form.submitted&&type.invalid"><span class="input-warning fa fa-warning"></span> 二到四个中文字符！</div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="edit-detail">详情 ： </label>
+                </div>
+                <input type="text" [(ngModel)]="editData.detail" class="form-control" name="detail" id="edit-detail" placeholder="">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="edit-count">金额 ： </label>
+                </div>
+                <input type="text" [(ngModel)]="editData.count" class="form-control" name="count" id="edit-count" placeholder="">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="edit-time">时间 ： </label>
+                </div>
+                <input type="text" [(ngModel)]="editData.time" class="form-control" name="time" id="edit-time" placeholder="">
+            </div>
+            <div class="input-group input-botton">
+                <button class="btn btn-secondary" type="button" (click)="cancelEdit()">取消</button>
+                <button class="btn btn-success" type="submit">保存</button>
+            </div>
+        </form>
+</aside>
+ <!-- <app-dialog [config]="dialog"
+             (dialogCancel)="dialogCancel($event)"
+             (dialogSure)="dialogSure($event)"
+             (dialogClose)="dialogClose($event)"
+ ></app-dialog> -->
+ <app-dialog></app-dialog>

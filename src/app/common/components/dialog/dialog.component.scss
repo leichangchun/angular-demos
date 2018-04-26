@@ -1,0 +1,51 @@
+@import './../../scss/common.scss';
+
+.dialog-area{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(73, 69, 69, 0.74);
+
+    .dialog{
+        position: relative;
+        margin: auto;
+        width: 20rem;
+        padding: .5rem 0;
+        background-color: #eee;
+        border-radius: .5rem;
+
+        header{
+            padding: 0 1rem;
+            @include only-bottom-border;
+
+            h3{
+                text-align: center;
+            }
+
+            button{
+                position: absolute;
+                right: .5rem;
+                top: .2rem;
+            }
+        }
+
+        .content{
+            padding: 2rem 1rem;
+            @include only-bottom-border;
+        }
+
+        footer{
+            display:flex;
+            padding: .5rem 1rem 0;
+
+            button{
+                flex: 1;
+                margin: 0 1rem;
+            }
+        }
+    }
+}
+

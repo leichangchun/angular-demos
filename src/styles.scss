@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+//引入booststrap 4样式，可用全局样式
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+//primeng的依赖
+@import "./assets/font-awesome-4.7.0/css/font-awesome.min.css";
+@import "../node_modules/primeng/resources/themes/omega/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+
+html,body{
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.bg-color-1{
+    background-color: aquamarine;
+}
+.bg-color-2{
+    background-color: rgb(75, 99, 179);
+}
+.bg-color-3{
+    background-color: #a263a8;
+}
+.bg-color-4{
+    background-color: rgb(146, 42, 56);
+}
+
+.loading{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    span{
+        margin: auto;
+        font-size: 8rem;
+    }
+}

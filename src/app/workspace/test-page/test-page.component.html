@@ -1,0 +1,27 @@
+<div class="test-page">
+  <div class="datepicker-wrapper">
+    <div class="datepicker">
+      <app-ldatepicker></app-ldatepicker>
+    </div>
+  </div>
+  <div class="carousel">
+      <app-carousel></app-carousel>
+  </div>
+  <div class="tip-test-wrapper">
+    <div class="tip-test-item" (click)="showSucTip()">success-tip提示</div>
+    <div class="tip-test-item" (click)="showInfoTip()">info-tip提示</div>
+    <div class="tip-test-item" (click)="showErrorTip()">error-tip提示</div>
+  </div>
+  <div class="tip-test-wrapper">
+    <div class="tip-test-item" (click)="showDialog1()">dialog提示1</div>
+    <div class="tip-test-item" (click)="showDialog2()">dialog提示2</div>
+  </div>
+  <div class="tip-test-wrapper">
+    <div class="tip-test-item" (click)="showPrimengDialog()">primeng-dialog提示</div>
+  </div>
+  <div class="tip-test-wrapper">
+    <button nz-button (click)="showNzDialog()" [nzType]="'primary'" [nzSize]="'small'">nz-zorro的提示框</button>
+  </div>
+</div>
+<app-dialog></app-dialog>
+<p-confirmDialog></p-confirmDialog>

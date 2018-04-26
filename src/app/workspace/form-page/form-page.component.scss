@@ -1,0 +1,61 @@
+.form-page{
+    width: 90%;
+    margin: 0 auto;
+    .form-tool{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 10px 0;
+    
+        .tool-item{
+            width: 100px;
+            text-align: center;
+            margin-right: 40px;
+        }
+    }
+}
+
+.edit-area{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #808080, $alpha: 0.8);
+
+    .form-edit{
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+
+    
+        .input-group{
+            margin: 10px 0;
+
+            .input-warning{
+                font-size: 0.8rem;
+
+                &.fa{
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 2px;
+                    margin: 0 10px;
+                    color: rgb(211, 105, 105);
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .input-botton{
+            display: flex;
+            justify-content: space-between;
+
+            .btn{
+                width: 100px;
+            }
+        }
+    }
+}
