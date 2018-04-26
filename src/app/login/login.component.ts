@@ -37,4 +37,8 @@ export class LoginComponent implements OnInit {
       console.dir(error);
     });
   }
+
+  testInput ( _input: any) {
+    console.dir(_input);
+  }
 }
