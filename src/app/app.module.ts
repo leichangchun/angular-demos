@@ -12,11 +12,13 @@ import { LoginService } from './login/login.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { WorkspaceModule } from './workspace/workspace.module';
+import { Login2Component } from './login2/login2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    Login2Component
   ],
   imports: [
     BrowserModule,

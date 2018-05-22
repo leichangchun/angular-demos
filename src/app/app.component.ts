@@ -1,8 +1,12 @@
 import { Component , OnInit} from '@angular/core';
 import { HttpService } from './common/services/http.service';
 import { LoginService } from './login/login.service';
-
 import { environment } from './../environments/environment';
+import { Router, NavigationEnd, RouterEvent } from '@angular/router';
+import 'rxjs/operator/filter';
+import 'rxjs/Operator/map';
+
+
 
 @Component({
   selector: 'app-root',
@@ -12,8 +16,11 @@ import { environment } from './../environments/environment';
 export class AppComponent implements OnInit {
   constructor (
     private _http: HttpService,
-    private loginservie: LoginService
+    private loginservie: LoginService,
+    private router: Router
    ) {
+
+
 
     /*
     // http 测试
@@ -45,5 +52,8 @@ export class AppComponent implements OnInit {
   ngOnInit () {
     // 测试env 管理配置
     console.log( `测试enviroment : name = ${environment.name}` );
+
+    // 获取路由路径
+    this.router.events.filter();
   }
 }

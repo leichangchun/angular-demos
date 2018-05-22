@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkspaceService } from './../workspace.service';
-import { ActivatedRoute, ParamMap} from '@angular/router';
+import { ActivatedRoute, ParamMap, UrlSegment} from '@angular/router';
 import { flyIn } from './../../common/animations/fly';
 import 'rxjs/add/operator/switchMap';
 
@@ -29,6 +29,12 @@ export class ChartPageComponent implements OnInit {
     // 获取路由参数的快照，不会订阅
     this.param = activatedRoute.snapshot.paramMap.get('id');
     console.log(this.param);
+
+    // 动态的获取参数;
+    this.activatedRoute.paramMap.subscribe((parame: ParamMap) => {
+      console.log(parame);
+    });
+
    }
 
   ngOnInit() {

@@ -1,19 +1,35 @@
 <div class="container-fluid login-page">
   <h1>Angular表单</h1>
-  <form class="login-area" #test="ngForm" (submit)="testInput(test)">
+        <!-- 模版引用变量指向ngForm指令 -->
+  <form class="login-area" #testform="ngForm" (submit)="login()">
     <div class="form-group">
-        <input class="form-control"  [(ngModel)] = "user.name"  type="text" name="name" id="login-name" placeholder="请输入登录帐号">
+        <!-- ngModel绑定数据 -->
+        <!-- required 和 pattern 指定校验规则 -->
+        <!-- 模版引用变量指向ngModel指令 -->
+        <input class="form-control" type="text" name="name" id="login-name" placeholder="请输入登录帐号"
+               [(ngModel)] = "user.name"   
+               required
+               pattern="[0-9A-z]+"
+               #nameinput = "ngModel"
+               >
+    </div>
+        <!-- 通过表单控件的状态控制是否展示错误说明及展示何种错误说明 -->
+    <div class="form-group" *ngIf="nameinput.touched&&nameinput.invalid">
+        <span class="error-info" *ngIf="nameinput.errors?.required">用户名不能为空！</span>
+        <span class="error-info" *ngIf="nameinput.errors?.pattern">用户名只能包含英文或数字！</span>
     </div>
     <div class="form-group">
-      <input class="form-control" [(ngModel)] = "user.pwd" type="password" name="pwd" id="login-pwd" placeholder="请输入登录密码">
+      <input class="form-control" type="password" name="pwd" id="login-pwd" placeholder="请输入登录密码"
+             [(ngModel)] = "user.pwd"
+             required
+             #pwdinput = "ngModel">
     </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="login-rm">
-      <label for="login-rm" class="form-check-label">记住用户名？</label>
+    <div class="form-group" *ngIf="pwdinput.touched&&pwdinput.invalid">
+      <span class="error-info" *ngIf="pwdinput.errors?.required">密码不能为空！</span>
     </div>
     <div class="form-group">
-      <!-- <button type="submit" class="btn btn-block btn-success" (click)="login()">登录</button> -->
-      <button type="submit" class="btn btn-block btn-success">登录</button>
+      <!-- 通过表单的状态控制按钮是否可用 -->
+      <button type="submit" class="btn btn-block btn-success" [disabled]="testform.invalid">登录</button>
     </div>
   </form>
 </div>
