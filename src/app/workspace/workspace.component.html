@@ -1,2 +1,4 @@
 <app-top-nav [brand]="brand"></app-top-nav>
-<router-outlet></router-outlet>
+<div class="router-wrapper" [@routeAnimate] = "state">
+    <router-outlet></router-outlet>
+</div>

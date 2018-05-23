@@ -3,9 +3,7 @@ import { HttpService } from './common/services/http.service';
 import { LoginService } from './login/login.service';
 import { environment } from './../environments/environment';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
-import 'rxjs/operator/filter';
-import 'rxjs/Operator/map';
-
+import { filter, map } from 'rxjs/operators';
 
 
 @Component({
@@ -54,6 +52,8 @@ export class AppComponent implements OnInit {
     console.log( `测试enviroment : name = ${environment.name}` );
 
     // 获取路由路径
-    this.router.events.filter();
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    ).subscribe( event => console.log(event));
   }
 }
