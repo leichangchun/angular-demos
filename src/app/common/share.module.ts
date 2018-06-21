@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule , NgForm } from '@angular/forms';
+import { FormsModule , NgForm , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
 import { HttpService } from './services/http.service';
@@ -20,7 +20,7 @@ import { DealhourPipe } from './components/ldatepicker/dealhour.pipe';
 
 @NgModule({
     declarations: [ DialogComponent , NotfoundComponent, TipComponent, CarouselComponent, LdatepickerComponent, DealmonthPipe, DealhourPipe],
-    imports: [ CommonModule , FormsModule],
+    imports: [ CommonModule , FormsModule , ReactiveFormsModule],
     exports: [ DialogComponent ,
                TipComponent ,
                CarouselComponent ,
@@ -29,6 +29,7 @@ import { DealhourPipe } from './components/ldatepicker/dealhour.pipe';
                ConfirmDialogModule,
                CommonModule ,
                FormsModule ,
+               ReactiveFormsModule ,
                NgForm],
     providers: [ HttpService , TipService , DialogService , ConfirmationService]
 })

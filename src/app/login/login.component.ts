@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-import { HoverDirective } from './../common/directive/hover.directive';
 
 @Component({
   selector: 'app-login',
