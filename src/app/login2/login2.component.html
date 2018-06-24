@@ -1,23 +1,39 @@
 <div class="container-fluid login-page">
   <h1>Angular表单</h1>
-  <form class="login-area" (submit)="login()">
+  <form class="login-area" (submit)="login()" [formGroup] = "loginForm">
+    <div formGroupName="name"> 
+        <div class="form-group">
+            <input class="form-control" type="text"  id="login-name" placeholder="请输入姓" formControlName = 'firstname'>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text"  id="login-name" placeholder="请输入名" formControlName = 'lastname'>
+        </div>
+    </div>
+    <!-- <div class="form-group">
+        <input class="form-control" type="text"  id="login-name" placeholder="请输入登录帐号" formControlName = 'name'>
+    </div> -->
     <div class="form-group">
-        <input class="form-control" type="text" name="name" id="login-name" placeholder="请输入登录帐号" 
-        [formControl]="name">
+      <input class="form-control" type="password"  id="login-pwd" placeholder="请输入登录密码" formControlName = 'psw'>
+    </div>
+    <div class="form-group">
+        {{getFormControl('name').status}}
+    </div>
+    <div class="form-group">
+        {{getFormControl('name.firstname').status}}
     </div>
     <!-- <div class="form-group" *ngIf="nameinput.touched&&nameinput.invalid">
         <span class="error-info" *ngIf="nameinput.errors?.required">用户名不能为空！</span>
         <span class="error-info" *ngIf="nameinput.errors?.pattern">用户名只能包含英文或数字！</span>
     </div> -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <input class="form-control" type="password" name="pwd" id="login-pwd" placeholder="请输入登录密码">
-    </div>
+    </div> -->
     <!-- <div class="form-group" *ngIf="pwdinput.touched&&pwdinput.invalid">
       <span class="error-info" *ngIf="pwdinput.errors?.required">密码不能为空！</span>
     </div> -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <button type="submit" class="btn btn-block btn-success">登录</button>
-    </div>
+    </div> -->
   </form>
 </div>
   
