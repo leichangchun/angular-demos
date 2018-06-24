@@ -31,16 +31,19 @@ export class Login2Component implements OnInit {
       name: this.fb.group({
         firstname: ['' , Validators.required],
         lastname: ['']
-      }, this.sameName()),
+      } , {
+        validator : this.sameName()
+      }),
       psw: ['' , Validators.required]
     });
   }
 
 
   sameName (): ValidatorFn {
+    console.log(this);
     return (control: FormGroup): { [key: string]: any} => {
-      console.log(control.get('firstname'));
-      return '' === '' ? { 'sameName' : true } : null;
+      console.log(control);
+      return control.get('firstname').value === control.get('lastname').value ? { 'sameName' : true } : null;
     };
   }
 
