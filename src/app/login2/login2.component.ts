@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl , Validators, FormGroup , FormBuilder, ValidatorFn} from '@angular/forms';
+import { FormControl , Validators, FormGroup , FormBuilder, ValidatorFn , AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'app-login2',
@@ -26,13 +26,17 @@ export class Login2Component implements OnInit {
     // this.loginForm = fb.group({
     //   name : ['' , Validators.required],
     //   psw : ['']
+    // }, {
+    //   validator : Validators.minLength(2)
     // });
     this.loginForm = fb.group({
       name: this.fb.group({
         firstname: ['' , Validators.required],
         lastname: ['']
       } , {
-        validator : this.sameName()
+        validator : [ // 对整个name的校验规则
+          this.sameName(), Validators.minLength(2)
+        ]
       }),
       psw: ['' , Validators.required]
     });
@@ -40,9 +44,7 @@ export class Login2Component implements OnInit {
 
 
   sameName (): ValidatorFn {
-    console.log(this);
-    return (control: FormGroup): { [key: string]: any} => {
-      console.log(control);
+    return (control: AbstractControl): { [key: string]: any} => { // control指向使用它的formControl或者formGroup
       return control.get('firstname').value === control.get('lastname').value ? { 'sameName' : true } : null;
     };
   }
