@@ -16,10 +16,11 @@ import { ConfirmationService } from 'primeng/api';
 import { LdatepickerComponent } from './components/ldatepicker/ldatepicker.component';
 import { DealmonthPipe } from './components/ldatepicker/dealmonth.pipe';
 import { DealhourPipe } from './components/ldatepicker/dealhour.pipe';
-
+import { HovertipDirective } from './components/hovertip/hovertip.directive';
+import {HovertipComponent} from './components/hovertip/hovertip.component';
 
 @NgModule({
-    declarations: [ DialogComponent , NotfoundComponent, TipComponent, CarouselComponent, LdatepickerComponent, DealmonthPipe, DealhourPipe],
+    declarations: [ DialogComponent , NotfoundComponent, TipComponent, CarouselComponent, LdatepickerComponent, DealmonthPipe, DealhourPipe, HovertipDirective , HovertipComponent],
     imports: [ CommonModule , FormsModule , ReactiveFormsModule],
     exports: [ DialogComponent ,
                TipComponent ,
@@ -30,8 +31,11 @@ import { DealhourPipe } from './components/ldatepicker/dealhour.pipe';
                CommonModule ,
                FormsModule ,
                ReactiveFormsModule ,
+               HovertipDirective,
+               HovertipComponent,
                NgForm],
-    providers: [ HttpService , TipService , DialogService , ConfirmationService]
+    entryComponents : [HovertipComponent],
+    providers: [ HttpService , TipService , DialogService , ConfirmationService ]
 })
 
 export class ShareModule {}

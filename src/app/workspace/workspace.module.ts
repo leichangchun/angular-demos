@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { WorkspaceRoutingModule } from './workspace.routing';

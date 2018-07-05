@@ -22,6 +22,10 @@
   <div class="tip-test-wrapper">
     <button nz-button (click)="showNzDialog()" [nzType]="'primary'" [nzSize]="'small'">nz-zorro的提示框</button>
   </div>
+  <div class="tip-test-wrapper">
+    <h2  class="test-hover" appHovertip>测试动态添加组件</h2>
+    <!-- <h2 #testhover class="test-hover" (click)="createHoverTipTest()">测试动态添加组件</h2> -->
+  </div>
 </div>
 <app-dialog></app-dialog>
 <p-confirmDialog></p-confirmDialog>

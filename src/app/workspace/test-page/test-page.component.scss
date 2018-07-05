@@ -4,6 +4,7 @@
     .tip-test-wrapper{
         display: flex;
         margin-bottom: 1rem;
+        position: relative;
 
         .tip-test-item{
             width: max-content;
@@ -12,6 +13,11 @@
             color: #fff;
             border-radius: .3rem;
             margin-right: 1rem;
+            cursor: pointer;
+        }
+
+        .test-hover{
+            position: relative;
             cursor: pointer;
         }
     }
