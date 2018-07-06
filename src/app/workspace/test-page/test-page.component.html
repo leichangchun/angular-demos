@@ -24,8 +24,14 @@
   </div>
   <div class="tip-test-wrapper">
     <h2  class="test-hover" appHovertip>测试动态添加组件</h2>
-    <!-- <h2 #testhover class="test-hover" (click)="createHoverTipTest()">测试动态添加组件</h2> -->
+  </div>
+  <div class="tip-test-wrapper">
+    <button class="test-get-dom" #testdom (click)="getDomTest()">测试获取DOM</button>
+  </div>
+  <div class="tip-test-wrapper">
+    <button class="test-get-dom" #testdom (click)="getDomTest()">测试获取DOM</button>
   </div>
 </div>
+<app-dialog></app-dialog>
 <app-dialog></app-dialog>
 <p-confirmDialog></p-confirmDialog>

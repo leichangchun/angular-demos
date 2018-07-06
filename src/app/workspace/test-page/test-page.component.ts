@@ -1,12 +1,12 @@
-import { Component, OnInit , ViewContainerRef , ComponentFactoryResolver , ComponentRef, ViewChild, ContentChild} from '@angular/core';
+import { Component, OnInit , ViewContainerRef , ElementRef , ViewChild,  Renderer2 , ViewChildren, QueryList} from '@angular/core';
 import { TipService } from './../../common/components/tip/tip.service';
 import { DialogService } from './../../common/components/dialog/dialog.service';
 import { TipType } from './../../common/type/data-type';
 import { NzModalService } from 'ng-zorro-antd';
 import { ConfirmationService } from 'primeng/api';
 
-import { HovertipComponent } from './../../common/components/hovertip/hovertip.component';
-import { ElementDef } from '@angular/core/src/view';
+import { DialogComponent } from './../../common/components/dialog/dialog.component';
+
 
 @Component({
   selector: 'app-test-page',
@@ -15,30 +15,28 @@ import { ElementDef } from '@angular/core/src/view';
 })
 export class TestPageComponent implements OnInit {
 
-  public hovertip: ComponentRef<HovertipComponent>;
-  @ViewChild('testhover' , { read: ViewContainerRef }) container: ViewContainerRef;
-  @ViewChild('testhover') elementRef: ElementDef;
-  @ContentChild('testhover') content: ContentChild;
+  @ViewChild('testdom' , { read: ViewContainerRef }) viewcontainer: ViewContainerRef;
+  @ViewChild('testdom') viewelement: ElementRef;
+  @ViewChildren('testdom') viewelements: QueryList<any>;
+  @ViewChild(DialogComponent) viewcontent: DialogComponent;
+  @ViewChildren(DialogComponent) viewcontents: QueryList<DialogComponent>;
+
   constructor(
     private tipservice: TipService,
     private dialogservice: DialogService,
     private confirmdialog: ConfirmationService,
     private nzModalservice: NzModalService,
-    private resolver: ComponentFactoryResolver
+    private render: Renderer2,
+    private el: ElementRef
   ) { }
 
   ngOnInit() {
   }
 
-  createHoverTipTest() {
-    // this.container.clear();
-    // // console.dir(this.container);
-    // // console.dir(this.elementRef);
-    // // console.dir(this.content);
-
-    // const factory = this.resolver.resolveComponentFactory(HovertipComponent);
-    // this.hovertip = this.container.createComponent(factory);
+  getDomTest() {
+    this.render.setStyle(this.viewelement.nativeElement , 'color' , 'red');
   }
+
 
   showSucTip () {
     this.tipservice.$showtip.next({
